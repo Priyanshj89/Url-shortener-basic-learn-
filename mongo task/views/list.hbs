@@ -1,0 +1,36 @@
+<h1>
+    USER INFO
+</h1>
+<table>
+    <tr>
+    <th>
+        Id:
+    </th>
+    <th>
+        Name:
+    </th>
+    <th>
+        Email:
+    </th>
+    <th>
+        Phone Number:
+    </th>
+    </tr>
+    {{#each data}}
+     <tr>
+     <td>
+         {{this.userid}}
+     </td>
+     <td>
+         {{this.Name}}
+     </td>
+     <td>
+         {{this.Email}}
+     </td>
+     <td>
+         {{this.Phonenumber}}
+     </td>
+
+    </tr>
+    {{/each}}
+</table>
