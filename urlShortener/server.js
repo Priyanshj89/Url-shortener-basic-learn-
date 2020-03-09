@@ -10,8 +10,8 @@ app.set('view engine', 'ejs'),//setting view engine to ejs
 app.use(express.urlencoded({ extended: true })),
 
 app.get('/',async (req,res)=>{
-  //  const shortUrls = await ShortUrl.find()
-res.render('index.ejs')//{ shortUrls: shortUrls })
+    const shortUrls = await ShortUrl.find()
+res.render('index.ejs',{ shortUrls : shortUrls })
 }),
 
 app.post('/shortUrls', async (req,res)=>{
@@ -20,16 +20,17 @@ app.post('/shortUrls', async (req,res)=>{
  res.redirect('/')
 }),
 
-/*app.get('/:shortUrl', async (req,res)=>{
+app.get('/:shortUrl', async (req,res)=>{
     const shortUrl= await ShortUrl.findOne({short: req.params.shortUrl})
     if(shortUrl==null) return res.sendStatus(404)
     
     shortUrl.clicks++
+    //console.log( shortUrl.clicks)
     shortUrl.save()
 
     res.redirect(shortUrl.full)
 
-}),*/
+}),
 
 app.listen(process.env.PORT || 5000,()=>{//process env to dynamically set port
     console.log('server has started')
